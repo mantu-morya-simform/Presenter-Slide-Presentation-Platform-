@@ -10,7 +10,25 @@
   <body>
     <div id="app" class="app">
       <header class="header">Header</header>
-      <main class="main">Main</main>
+      <main class="main">
+        <aside class="left-sidebar">
+          <div class="images">
+            <!-- <img class="img img-selected" src="./src/assets/img_1.jpg" alt="" /> -->
+          </div>
+          <div class="upload-image">
+            <h3>Upload Images</h3>
+            <div class="upload-handler">
+              <input
+                type="file"
+                id="imageInput"
+                class="imageInput"
+                accept="image/*"
+              />
+              <button class="img-save-btn">Save</button>
+            </div>
+          </div>
+        </aside>
+      </main>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

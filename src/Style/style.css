@@ -1,25 +1,101 @@
+@import url("./tokens.css");
+
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body,
-html {
-  height: 100vh;
-  width: 100vw;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  /* overflow: hidden; */
 }
 
+/* App layout */
 .app {
-  height: 100%;
+  height: 100vh;
   display: grid;
-  grid-template-rows: 8% 92%;
+  grid-template-rows: 60px 1fr;
 }
 
 .header {
-  background-color: #ddcece;
+  background-color: var(--red-500);
 }
 
+/* Main layout */
 .main {
-  background: #ffffff;
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Manty Style */
+
+/* Sidebar */
+.left-sidebar {
+  background: var(--gray-400);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Top section (scrollable images) */
+.images {
+  height: 80%;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+
+/* Images */
+.img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+}
+
+.img-selected {
+  border: var(--border-5) solid var(--blue-500);
+}
+
+/* Bottom section */
+.upload-image {
+  height: 20%;
+  flex-shrink: 0;
+  background: var(--green-500);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+}
+
+.img-save-btn {
+  background: var(--blue-500);
+  border: none;
+  padding: var(--space-3) var(--space-6);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+}
+
+.upload-handler {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.imageInput {
+  width: 60%;
 }
