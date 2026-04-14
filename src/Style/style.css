@@ -1,4 +1,6 @@
-* {
+@import url(./tokens.css);
+
+*{
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
@@ -17,9 +19,57 @@ html {
 }
 
 .header {
-  background-color: #ddcece;
+  background-color: var(--red-500);
 }
 
 .main {
-  background: #ffffff;
+  background: var(--gray-100);
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+/* satyam */
+.presentation-section{
+  background: var(--gray-100);
+  display: flex;
+}
+
+button{
+  border: none;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+button:hover{
+  cursor: pointer;
+}
+img:hover{
+  cursor: pointer;
+}
+.left-arrow{
+  flex: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:var(--blue-500);
+  border-radius: var(--radius-sm);
+}
+.image-viewer{
+  flex: 90;
+  max-height: 890px; 
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.image{
+  width: 99%;
+  height: 99%; 
+  object-fit: cover;
+}
+.right-arrow{
+  flex: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--blue-500);
+  border-radius: var(--radius-sm);
 }
