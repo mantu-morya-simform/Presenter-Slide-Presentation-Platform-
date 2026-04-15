@@ -1,4 +1,5 @@
 import type { ImageData } from "../models/type/imageDataType";
+import { createAndAppendImage } from "../utills/createAndAppendImage";
 
 /* -------- Render Images -------- */
 export function renderSlide(imageElement: HTMLElement | null) {
@@ -7,14 +8,8 @@ export function renderSlide(imageElement: HTMLElement | null) {
   const allImageData: ImageData[] = JSON.parse(
     localStorage.getItem("imageData") || "[]",
   );
-
-  imageElement.innerHTML = "";
-
-  allImageData.forEach((data) => {
-    const img = document.createElement("img");
-    img.src = data.path;
-    img.classList.add("img");
-
-    imageElement.appendChild(img);
-  });
+  /**
+   *   createAndAppendImage is a utill function that create image-element for each image whcich store into the local storage and append to its parent
+   */
+  createAndAppendImage(imageElement, allImageData);
 }

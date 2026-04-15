@@ -99,3 +99,43 @@ body {
 .imageInput {
   width: 60%;
 }
+
+/* Header Style */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-6);
+  border-bottom: var(--border-1) solid var(--gray-400);
+}
+
+.header-logo-section {
+  background: var(--gray-100);
+  padding: var(--space-5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-sm);
+}
+
+.start-presentation-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-5);
+}
+
+.start-presentation-btn {
+  padding: var(--space-3) var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: var(--blue-500);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semi-bold);
+  color: var(--gray-800);
+}
+
+.start-presentation-btn:hover {
+  background: var(--blue-600);
+}

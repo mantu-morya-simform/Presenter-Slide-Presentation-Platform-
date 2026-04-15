@@ -9,8 +9,11 @@
   --gray-100: #fefefe;
 
   --blue-500: #4ec2ff;
+  --blue-600: #2fb4f5;
   --red-500: #ff5c5c;
+  --red-600: #e04848;
   --green-500: #4cd964;
+  --green-600: #38c172;
 
   /* ===== SPACING ===== */
   --space-1: 4px;
@@ -31,6 +34,7 @@
   /* ===== FONT WEIGHT===== */
 
   --font-bold: bold;
+  --font-semi-bold: 600;
 
   /* ===== RADIUS ===== */
   --radius-sm: 4px;

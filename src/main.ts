@@ -1,16 +1,18 @@
+import {
+  imageSaveButton,
+  imageInput,
+  imageElement,
+  allimgElements,
+} from "./Dom/dom";
+
 import { saveImage } from "./services/saveImage";
 import { renderSlide } from "./services/renderSlide";
+import { dragImage } from "./services/dragImage";
 
-const imageSaveButton = document.querySelector(
-  ".img-save-btn",
-) as HTMLButtonElement | null;
-
-const imageInput = document.querySelector(
-  ".imageInput",
-) as HTMLInputElement | null;
-
-const imageElement = document.querySelector(".images") as HTMLElement | null;
-
-/* -------- Init -------- */
+/* Init */
 saveImage(imageSaveButton, imageInput, imageElement);
 renderSlide(imageElement);
+
+/* drag and chenge the order of image  */
+
+dragImage(allimgElements);

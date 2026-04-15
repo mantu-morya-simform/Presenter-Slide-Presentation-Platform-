@@ -1,7 +1,6 @@
-import type { ImageData } from "../models/type/imageDataType";
-import { renderSlide } from "./renderSlide";
+import { convertAndStore } from "../utills/convertAndStore";
 
-/* -------- Save Image -------- */
+/*   Save Image */
 export function saveImage(
   imageSaveButton: HTMLButtonElement | null,
   imageInput: HTMLInputElement | null,
@@ -17,24 +16,9 @@ export function saveImage(
       alert("Please select an image first");
       return;
     }
-
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      const base64Path = reader.result as string;
-
-      const allImageData: ImageData[] = JSON.parse(
-        localStorage.getItem("imageData") || "[]",
-      );
-
-      allImageData.push({ path: base64Path });
-
-      localStorage.setItem("imageData", JSON.stringify(allImageData));
-
-      renderSlide(imageElement); // refresh UI
-      imageInput.value = ""; // reset input
-    };
-
-    reader.readAsDataURL(file);
+    /**
+     *   convertAndStore is a utill function that convert image file into base64 and store into local storage
+     */
+    convertAndStore(file, imageElement, imageInput);
   });
 }
