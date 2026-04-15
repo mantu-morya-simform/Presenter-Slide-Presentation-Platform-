@@ -1,7 +1,7 @@
 interface imageIndex{
-    index:Number,
+    index:number,
 }
 
 export const imageIndex={
-    index:0,
+    startIndex:-1,
 }
