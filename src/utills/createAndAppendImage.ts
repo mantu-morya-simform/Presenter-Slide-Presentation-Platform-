@@ -3,6 +3,7 @@ export function createAndAppendImage(
   imageElement: HTMLElement | null,
   allImageData: ImageData[],
 ) {
+  if (!imageElement) return;
   imageElement.innerHTML = "";
   allImageData.forEach((data) => {
     const img = document.createElement("img");

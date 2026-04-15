@@ -1,8 +1,9 @@
 import { swapImages } from "../utills/swapImages";
 
 export function dragImage(allimgElements: NodeListOf<HTMLImageElement> | null) {
-  let selectedElement = null;
-  let targetElement = null;
+  let selectedElement: HTMLImageElement | null = null;
+  let targetElement: HTMLImageElement | null = null;
+
   allimgElements = document.querySelectorAll(
     ".img",
   ) as NodeListOf<HTMLImageElement> | null;
