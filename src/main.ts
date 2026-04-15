@@ -1,10 +1,5 @@
 /* Mantu Main */
-import {
-  imageSaveButton,
-  imageInput,
-  imageElement,
-  allimgElements,
-} from "./Dom/dom";
+import { imageSaveButton, imageInput, imageElement } from "./Dom/dom";
 
 import { saveImage } from "./services/saveImage";
 import { renderSlide } from "./services/renderSlide";
@@ -16,4 +11,4 @@ renderSlide(imageElement);
 
 /* drag and chenge the order of image  */
 
-dragImage(allimgElements);
+dragImage();

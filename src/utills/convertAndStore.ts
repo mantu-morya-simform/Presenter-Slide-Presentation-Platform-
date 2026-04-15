@@ -1,5 +1,4 @@
 import type { ImageData } from "../models/type/imageDataType";
-import { allimgElements } from "../Dom/dom";
 import { renderSlide } from "../services/renderSlide";
 import { dragImage } from "../services/dragImage";
 export function convertAndStore(
@@ -19,8 +18,11 @@ export function convertAndStore(
     allImageData.push({ path: base64Path, name: file.name });
     localStorage.setItem("imageData", JSON.stringify(allImageData));
     renderSlide(imageElement); // refresh UI
-    dragImage(allimgElements); // initilize drag & drop on New Image also
-    imageInput.value = ""; // reset input
+    dragImage(); // initilize drag & drop on New Image also
+
+    if (imageInput) {
+      imageInput.value = ""; // reset input
+    }
   };
 
   reader.readAsDataURL(file);

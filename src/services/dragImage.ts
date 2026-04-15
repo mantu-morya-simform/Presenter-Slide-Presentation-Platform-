@@ -1,12 +1,12 @@
 import { swapImages } from "../utills/swapImages";
 
-export function dragImage(allimgElements: NodeListOf<HTMLImageElement> | null) {
+export function dragImage() {
   let selectedElement: HTMLImageElement | null = null;
   let targetElement: HTMLImageElement | null = null;
 
-  allimgElements = document.querySelectorAll(
+  const allimgElements = document.querySelectorAll(
     ".img",
-  ) as NodeListOf<HTMLImageElement> | null;
+  ) as NodeListOf<HTMLImageElement>;
 
   allimgElements.forEach((img) => {
     img.addEventListener("dragstart", (e: MouseEvent) => {
@@ -23,7 +23,9 @@ export function dragImage(allimgElements: NodeListOf<HTMLImageElement> | null) {
       /**
        *   swapImages is a utill function that create a temp image-element and swap the selected and target image-element
        */
-      swapImages(selectedElement, targetElement);
+      if (selectedElement && targetElement) {
+        swapImages(selectedElement, targetElement);
+      }
     });
   });
 }
