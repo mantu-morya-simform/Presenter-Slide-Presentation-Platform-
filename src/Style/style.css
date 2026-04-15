@@ -140,6 +140,10 @@ body {
   background: var(--blue-600);
 }
 
+.select-file-remove {
+  background: var(--red-600);
+}
+
 /* satyam */
 .presentation-section {
   background: var(--gray-100);

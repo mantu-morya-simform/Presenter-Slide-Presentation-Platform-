@@ -1,15 +1,11 @@
-const imageSaveButton = document.querySelector(
-  ".img-save-btn",
-) as HTMLButtonElement | null;
+const imageSaveButton = document.querySelector<HTMLButtonElement>('.img-save-btn');
 
-const imageInput = document.querySelector(
-  ".imageInput",
-) as HTMLInputElement | null;
+const imageInput = document.querySelector<HTMLInputElement>('.imageInput');
 
-const imageElement = document.querySelector(".images") as HTMLElement | null;
+const imageElement = document.querySelector<HTMLElement>('.images');
 
-const allimgElements = document.querySelectorAll(
-  ".img",
-) as NodeListOf<HTMLImageElement> | null;
+const draggableImages = document.querySelectorAll<HTMLImageElement>('.img');
 
-export { imageSaveButton, imageInput, imageElement, allimgElements };
+const deleteSelectedFileElement = document.querySelector<HTMLElement>('.select-file-remove');
+
+export { imageSaveButton, imageInput, imageElement, draggableImages, deleteSelectedFileElement };
