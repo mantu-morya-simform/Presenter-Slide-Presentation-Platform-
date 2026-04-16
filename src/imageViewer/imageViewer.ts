@@ -1,10 +1,11 @@
-import { imageElement,imageStore,leftClick,rightClick } from "./slide-ui";
+import { imageEl,imageStore,leftClick,rightClick } from "./slide-ui";
 import { imageIndex } from "./slide-data";
-import { createImage } from "../utils/createImage";
+import { createImage } from "../utills/createImage";
+import { gameState } from "../models/appState";
 
 //fn to fetch the image from sidebar
 function getImages():NodeListOf<HTMLImageElement>{
-    return imageElement.querySelectorAll('img');
+    return imageEl.querySelectorAll('img');
 }
 
 //fn to update the button state
@@ -25,12 +26,14 @@ export function showImage(index:number){
 
 //fn to get previous image on clicking the left button
 export function prevImage(){
+    gameState.isDragAllow = false;
     imageIndex.startIndex--;
     showImage(imageIndex.startIndex);
     updateButton(imageIndex.startIndex);
 }
 //fn to get previous image on clicking the right button
 export function nextImage(){
+    gameState.isDragAllow = false;
     imageIndex.startIndex++;
     showImage(imageIndex.startIndex);
     updateButton(imageIndex.startIndex);
