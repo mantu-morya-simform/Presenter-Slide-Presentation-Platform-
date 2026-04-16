@@ -6,11 +6,8 @@ import { startPresentationButtonElement } from '../Dom/dom';
  */
 
 export function startPresentation(){
-  const btn=startPresentationButtonElement;
-  if(!btn)return;
-  btn.addEventListener('click', () => {
+  startPresentationButtonElement?.addEventListener('click', () => {
     window.open('/viewer.html', '_blank');
-    btn.textContent = 'End Presentation';
   });
 }
 
