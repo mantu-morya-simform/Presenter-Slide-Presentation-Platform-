@@ -18,6 +18,7 @@ imageEl.addEventListener('click',(e:Event)=>{
   const target=e.target;
   if(target instanceof HTMLImageElement){
     isDragable(false);
+    if(!imageEl)return;
     const images:NodeListOf<HTMLImageElement>=imageEl.querySelectorAll('img');
     const index=Array.from(images).indexOf(target);    
     showImage(index);
