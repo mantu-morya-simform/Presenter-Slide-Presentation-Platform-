@@ -9,7 +9,7 @@ import { deleteSelected } from './services/deleteSelected';
 import { isDragable } from "./utills/dragabbleState";
 
 //null check
-if(!leftClick || !rightClick){
+if(!imageEl || !leftClick || !rightClick){
   throw new Error("Buttons not found")
 }
 
