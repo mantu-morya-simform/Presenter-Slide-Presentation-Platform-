@@ -1,0 +1,57 @@
+@import url(./tokens.css);
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* App layout */
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+}
+
+/* Main layout */
+.main {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Header Style */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--red-500);
+  padding: var(--space-2) var(--space-6);
+  border-bottom: var(--border-1) solid var(--gray-400);
+}
+
+.header-logo-section {
+  background: var(--gray-100);
+  padding: var(--space-5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-sm);
+}
+
+.presentation-section {
+  height: 100%;
+  width: 100%;
+}
+
+.presentation-img {
+  height: 100%;
+  width: 100%;
+  border: var(--border-5) solid var(--blue-600);
+}

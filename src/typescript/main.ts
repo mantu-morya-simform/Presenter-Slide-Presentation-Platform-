@@ -1,6 +1,7 @@
 import { images, imageStore, leftClick, rightClick } from './slide-ui';
 import { imageIndex } from './slide-data';
 import { gameState } from '../models/appState';
+import { selectImage } from '../utills/selectImage';
 
 //left/right button check
 function updateButton(index: number) {
@@ -13,6 +14,7 @@ function updateButton(index: number) {
 images.forEach((img: HTMLImageElement, index: number) => {
   img.addEventListener('click', () => {
     gameState.isDragAllow = false;
+    selectImage(Number(img.dataset.index));
     imageStore.innerHTML = `
             <img class="image" src="${img.src}" alt="dummpy img">
         `;
@@ -25,6 +27,7 @@ images.forEach((img: HTMLImageElement, index: number) => {
 rightClick.addEventListener('click', () => {
   gameState.isDragAllow = false;
   imageIndex.startIndex++;
+  selectImage(Number(imageIndex.startIndex));
   imageStore.innerHTML = `
             <img class="image" src="${images[imageIndex.startIndex].src}" alt="dummpy img">
         `;
@@ -35,6 +38,7 @@ leftClick.disabled = true;
 leftClick.addEventListener('click', () => {
   gameState.isDragAllow = false;
   imageIndex.startIndex--;
+  selectImage(Number(imageIndex.startIndex));
   imageStore.innerHTML = `
             <img class="image" src="${images[imageIndex.startIndex].src}" alt="dummpy img">
         `;

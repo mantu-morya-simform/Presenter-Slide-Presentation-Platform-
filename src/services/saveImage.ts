@@ -1,6 +1,9 @@
 import { convertAndStore } from '../utills/convertAndStore';
 
-/*   check the file then Convert the image into base64 amd then Save Image into localstorage */
+/**
+ * Handles image upload by validating file type and saving it to localStorage.
+ * Uses convertAndStore to convert the file and update the UI.
+ */
 export function saveImage(
   imageSaveButton: HTMLButtonElement | null,
   imageInput: HTMLInputElement | null,
