@@ -5,9 +5,7 @@ export function dragImage() {
   let selectedElement: HTMLImageElement | null = null;
   let targetElement: HTMLImageElement | null = null;
 
-  console.log(gameState);
-
-  const draggableImages = document.querySelectorAll('.img') as NodeListOf<HTMLImageElement>;
+  const draggableImages = document.querySelectorAll<HTMLImageElement>('.img');
 
   draggableImages.forEach((img) => {
     img.addEventListener('dragstart', (e: MouseEvent) => {
