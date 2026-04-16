@@ -7,6 +7,7 @@ import { renderSlide } from './services/renderSlide';
 import { dragImage } from './services/dragImage';
 import { deleteSelected } from './services/deleteSelected';
 import { isDragable } from "./utills/dragabbleState";
+import { startPresentation } from "./services/startPresentation";
 
 //null check
 if(!imageEl || !leftClick || !rightClick){
@@ -44,3 +45,6 @@ dragImage();
 
 /* Delete Selected File Path */
 deleteSelected();
+
+/* Start Presentation Feature */
+startPresentation();
