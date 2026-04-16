@@ -6,7 +6,5 @@ import { deleteSelectedFile } from '../Dom/Action/deleteSelectedFile';
  * Ensures the element exists before binding the event listener.
  */
 export function deleteSelected() {
-  if (!deleteSelectedFileElement) return;
-
-  deleteSelectedFileElement.addEventListener('click', deleteSelectedFile);
+  deleteSelectedFileElement?.addEventListener('click', deleteSelectedFile);
 }
