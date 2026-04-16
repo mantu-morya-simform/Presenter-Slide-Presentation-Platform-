@@ -1,75 +1,191 @@
 @import url(./tokens.css);
 
-*{
+* {
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
 }
 
-body,
-html {
-  height: 100vh;
-  width: 100vw;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  /* overflow: hidden; */
 }
 
+/* App layout */
 .app {
-  height: 100%;
+  height: 100vh;
   display: grid;
-  grid-template-rows: 8% 92%;
+  grid-template-rows: 60px 1fr;
 }
 
 .header {
   background-color: var(--red-500);
 }
 
+/* Main layout */
 .main {
-  background: var(--gray-100);
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 20% 1fr;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Manty Style */
+
+/* Sidebar */
+.left-sidebar {
+  background: var(--gray-400);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Top section (scrollable images) */
+.images {
+  height: 80%;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+
+/* Images */
+.img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+}
+
+.img-selected {
+  border: var(--border-5) solid var(--blue-500);
+}
+
+/* Bottom section */
+.upload-image {
+  height: 20%;
+  flex-shrink: 0;
+  background: var(--green-500);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+}
+
+.img-save-btn {
+  background: var(--blue-500);
+  border: none;
+  padding: var(--space-3) var(--space-6);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+}
+
+.upload-handler {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.imageInput {
+  width: 60%;
+}
+
+/* Header Style */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-6);
+  border-bottom: var(--border-1) solid var(--gray-400);
+}
+
+.header-logo-section {
+  background: var(--gray-100);
+  padding: var(--space-5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-sm);
+}
+
+.start-presentation-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-5);
+}
+
+.start-presentation-btn {
+  padding: var(--space-3) var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: var(--blue-500);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semi-bold);
+  color: var(--gray-800);
+}
+
+.start-presentation-btn:hover {
+  background: var(--blue-600);
+}
+
+.select-file-remove {
+  background: var(--red-600);
 }
 
 /* satyam */
-.presentation-section{
+.presentation-section {
   background: var(--gray-100);
   display: flex;
 }
 
-button{
+button {
   border: none;
   padding: var(--space-2);
   border-radius: var(--radius-sm);
 }
-button:hover{
+button:hover {
   cursor: pointer;
 }
-img:hover{
+img:hover {
   cursor: pointer;
 }
-.left-arrow{
+.left-arrow {
   flex: 5;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color:var(--blue-500);
+  background-color: var(--blue-500);
   border-radius: var(--radius-sm);
 }
-.image-viewer{
+.image-viewer {
   flex: 90;
-  max-height: 890px; 
-  display:flex;
+  max-height: 890px;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-.image{
+.image {
   width: 99%;
-  height: 99%; 
+  height: 99%;
   object-fit: cover;
 }
-.right-arrow{
+.right-arrow {
   flex: 5;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:var(--blue-500);
+  background-color: var(--blue-500);
   border-radius: var(--radius-sm);
 }

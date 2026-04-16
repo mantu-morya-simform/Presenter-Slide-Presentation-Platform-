@@ -2,33 +2,96 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>presenter-slide-presentation-platform-</title>
     <link rel="stylesheet" href="./src/Style/style.css" />
   </head>
   <body>
     <div id="app" class="app">
-      <header class="header">Header</header>
+      <header class="header">
+        <div class="header-logo-section">
+          <img
+            class="header-logo"
+            src="https://www.simform.com/wp-content/uploads/2024/12/simform-logo.svg"
+            alt="header-logo"
+          />
+        </div>
+        <div class="start-presentation-section">
+          <button class="start-presentation-btn">Start Presentation</button>
+        </div>
+      </header>
       <main class="main">
-        <aside>
-          <img height="50px" width="50px" src="./src/assets/s1.png" alt="">
-          <img height="50px" width="50px" src="./src/assets/s2.png" alt="">
-          <img height="50px" width="50px" src="./src/assets/s3.png" alt="">
-          <img height="50px" width="50px" src="./src/assets/s5.png" alt="">
-          <img height="50px" width="50px" src="./src/assets/s4.png" alt="">
+        <aside class="left-sidebar">
+          <div class="images"></div>
+          <div class="upload-image">
+            <h3>Upload Images</h3>
+            <div class="upload-handler">
+              <input type="file" id="imageInput" class="imageInput" accept="image/*" />
+              <button class="img-save-btn">Save</button>
+              <button class="select-file-remove">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="24"
+                  fill="#000000"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
         </aside>
         <section class="presentation-section">
           <article class="left-arrow">
-            <button id="left-btn"><svg id="left-arrow" xmlns="http://www.w3.org/2000/svg" width="34" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-big-left-icon lucide-arrow-big-left"><path d="M10.793 19.793a.707.707 0 0 0 1.207-.5V16a1 1 0 0 1 1-1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-6a1 1 0 0 1-1-1V4.707a.707.707 0 0 0-1.207-.5l-6.94 6.94a1.207 1.207 0 0 0 0 1.707z"/></svg></button>
+            <button id="left-btn">
+              <svg
+                id="left-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                width="34"
+                height="54"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-big-left-icon lucide-arrow-big-left"
+              >
+                <path
+                  d="M10.793 19.793a.707.707 0 0 0 1.207-.5V16a1 1 0 0 1 1-1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-6a1 1 0 0 1-1-1V4.707a.707.707 0 0 0-1.207-.5l-6.94 6.94a1.207 1.207 0 0 0 0 1.707z"
+                />
+              </svg>
+            </button>
           </article>
           <article class="image-viewer"></article>
           <article class="right-arrow">
-            <button id="right-btn"><svg id="right-arrow" xmlns="http://www.w3.org/2000/svg" width="34" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-big-right-icon lucide-arrow-big-right"><path d="M13.207 19.793a.707.707 0 0 1-1.207-.5V16a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h6a1 1 0 0 0 1-1V4.707a.707.707 0 0 1 1.207-.5l6.94 6.94a1.207 1.207 0 0 1 0 1.707z"/></svg></button>
+            <button id="right-btn">
+              <svg
+                id="right-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                width="34"
+                height="54"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-big-right-icon lucide-arrow-big-right"
+              >
+                <path
+                  d="M13.207 19.793a.707.707 0 0 1-1.207-.5V16a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h6a1 1 0 0 0 1-1V4.707a.707.707 0 0 1 1.207-.5l6.94 6.94a1.207 1.207 0 0 1 0 1.707z"
+                />
+              </svg>
+            </button>
           </article>
         </section>
       </main>
     </div>
+    <script type="module" src="./src/main.ts"></script>
     <script type="module" src="./src/typescript/main.ts"></script>
   </body>
 </html>
