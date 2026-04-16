@@ -10,6 +10,7 @@ function getImages():NodeListOf<HTMLImageElement>{
 
 //fn to update the button state
 function updateButton(index:number){
+    if(!leftClick || !rightClick)return;
     const img=getImages();
     leftClick.disabled=(index===0);
     rightClick.disabled=(index===img.length-1);

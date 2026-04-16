@@ -23,6 +23,9 @@ imageEl.addEventListener('click',(e:Event)=>{
 })
 
 //button click image chang
+if(!leftClick || !rightClick){
+  throw new Error("Buttons not found")
+}
 rightClick.addEventListener('click',nextImage);
 leftClick.addEventListener('click',prevImage);
 
