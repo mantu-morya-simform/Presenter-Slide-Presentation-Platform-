@@ -8,8 +8,10 @@ import { dragImage } from './services/dragImage';
 import { deleteSelected } from './services/deleteSelected';
 import { isDragable } from "./utills/dragabbleState";
 
-//initial state
-leftClick.disabled = true;
+//null check
+if(!leftClick || !rightClick){
+  throw new Error("Buttons not found")
+}
 
 //works for run time image add too
 imageEl.addEventListener('click',(e:Event)=>{
@@ -22,10 +24,10 @@ imageEl.addEventListener('click',(e:Event)=>{
   }
 })
 
+//initial state
+leftClick.disabled = true;
+
 //button click image chang
-if(!leftClick || !rightClick){
-  throw new Error("Buttons not found")
-}
 rightClick.addEventListener('click',nextImage);
 leftClick.addEventListener('click',prevImage);
 
