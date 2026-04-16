@@ -1,7 +1,7 @@
 import { imageEl,imageStore,leftClick,rightClick } from "./slide-ui";
 import { imageIndex } from "./slide-data";
 import { createImage } from "../utills/createImage";
-import { gameState } from "../models/appState";
+import { isDragable } from "../utills/dragabbleState";
 
 //fn to fetch the image from sidebar
 function getImages():NodeListOf<HTMLImageElement>{
@@ -19,21 +19,21 @@ function updateButton(index:number){
 export function showImage(index:number){
     const images=getImages();
     imageStore.innerHTML='';
-    imageStore.appendChild(createImage(images[index].src, 'dummy-img'));
+    imageStore.appendChild(createImage(images[index].src, images[index].alt));
     imageIndex.startIndex=index;
     updateButton(index);
 }
 
 //fn to get previous image on clicking the left button
 export function prevImage(){
-    gameState.isDragAllow = false;
+    isDragable(false);
     imageIndex.startIndex--;
     showImage(imageIndex.startIndex);
     updateButton(imageIndex.startIndex);
 }
 //fn to get previous image on clicking the right button
 export function nextImage(){
-    gameState.isDragAllow = false;
+    isDragable(false);
     imageIndex.startIndex++;
     showImage(imageIndex.startIndex);
     updateButton(imageIndex.startIndex);

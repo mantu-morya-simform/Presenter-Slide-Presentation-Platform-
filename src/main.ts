@@ -1,21 +1,21 @@
 import { imageEl,leftClick,rightClick } from "./imageViewer/slide-ui";
 import { showImage,nextImage,prevImage } from "./imageViewer/imageViewer";
-import { gameState } from './models/appState';
 
 import { imageSaveButton, imageInput, imageElement } from './Dom/dom';
 import { saveImage } from './services/saveImage';
 import { renderSlide } from './services/renderSlide';
 import { dragImage } from './services/dragImage';
 import { deleteSelected } from './services/deleteSelected';
+import { isDragable } from "./utills/dragabbleState";
 
 //initial state
 leftClick.disabled = true;
 
 //works for run time image add too
 imageEl.addEventListener('click',(e:Event)=>{
-  const target=e.target as HTMLImageElement;
-  if(target.tagName=='IMG'){
-    gameState.isDragAllow = false;
+  const target=e.target;
+  if(target instanceof HTMLImageElement){
+    isDragable(false);
     const images:NodeListOf<HTMLImageElement>=imageEl.querySelectorAll('img');
     const index=Array.from(images).indexOf(target);    
     showImage(index);

@@ -1,4 +1,4 @@
-export const imageEl = document.querySelector('.images') as HTMLElement;
-export const imageStore=document.querySelector('.image-viewer') as HTMLElement;
-export const leftClick=document.getElementById('left-btn') as HTMLButtonElement;
-export const rightClick=document.getElementById('right-btn') as HTMLButtonElement;
+export const imageEl = document.querySelector<HTMLElement>('.images');
+export const imageStore=document.querySelector<HTMLElement>('.image-viewer');
+export const leftClick=document.querySelector<HTMLButtonElement>('#left-btn');
+export const rightClick=document.querySelector<HTMLButtonElement>('#right-btn');
