@@ -1,6 +1,6 @@
-const channel = new BroadcastChannel('preview_sync');
-
-const img = document.querySelector<HTMLImageElement>('.presentation-img');
+import { postMessageType } from './constants/constantsType';
+import { viewerimgElement } from './Dom/dom';
+import { createChannel } from './utills/createChannel';
 
 /**
  * Listens for image update messages from other tabs/windows
@@ -14,8 +14,12 @@ const img = document.querySelector<HTMLImageElement>('.presentation-img');
  * Ensures synchronization between the editor and
  * the presentation viewer.
  */
-channel.onmessage = (event) => {
-  if (event.data?.type === 'UPDATE_IMAGE' && img) {
-    img.src = event.data.image;
-  }
-};
+
+const channel = createChannel();
+
+if (channel)
+  channel.onmessage = (event) => {
+    if (event.data?.type === postMessageType && viewerimgElement) {
+      viewerimgElement.src = event.data.image;
+    }
+  };
