@@ -1,23 +1,26 @@
-import type { ImageData } from '../models/type/imageDataType';
+import { swapImageOrder } from '../db/store';
+import { imageElement } from '../Dom/dom';
+import { dragImage } from '../services/dragImage';
+import { renderSlide } from '../services/renderSlide';
 
 /**
  * Swaps two images using their indexes and updates localStorage.
  * Reloads the page to reflect the new image order.
  */
-export function swapImages(selectedElement: HTMLImageElement, targetElement: HTMLImageElement) {
-  /* it take the selectedElement and targetElement and swap them with indexes also for suffling */
-  if (selectedElement && targetElement !== selectedElement) {
-    const selectedIndex = Number(selectedElement.dataset.index);
-    const targetIndex = Number(targetElement.dataset.index);
 
-    const allImageData: ImageData[] = JSON.parse(localStorage.getItem('imageData') || '[]');
+export async function swapImages(
+  selectedElement: HTMLImageElement,
+  targetElement: HTMLImageElement
+) {
+  if (selectedElement === targetElement) return;
 
-    [allImageData[selectedIndex], allImageData[targetIndex]] = [
-      allImageData[targetIndex],
-      allImageData[selectedIndex],
-    ];
+  const selectedIndex = Number(selectedElement.dataset.index);
+  const targetIndex = Number(targetElement.dataset.index);
 
-    localStorage.setItem('imageData', JSON.stringify(allImageData));
-    location.reload();
+  await swapImageOrder(selectedIndex, targetIndex);
+
+  if (imageElement) {
+    await renderSlide(imageElement);
   }
+  dragImage();
 }

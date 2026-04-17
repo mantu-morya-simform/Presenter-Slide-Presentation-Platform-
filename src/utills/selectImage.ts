@@ -2,6 +2,7 @@ import { createChannel } from './createChannel';
 
 import type { ImageData } from '../models/type/imageDataType';
 import { postMessageType } from '../constants/constantsType';
+import { getAllImages } from '../db/store';
 
 /**
  * Broadcasts the selected image to other tabs for real-time preview sync.
@@ -10,8 +11,9 @@ import { postMessageType } from '../constants/constantsType';
  */
 
 const channel = createChannel();
-export function selectImage(index: number) {
-  const allImageData: ImageData[] = JSON.parse(localStorage.getItem('imageData') || '[]');
+
+export async function selectImage(index: number) {
+  const allImageData: ImageData[] = await getAllImages();
   const image = allImageData[index];
 
   if (!image) return;
