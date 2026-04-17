@@ -1,6 +1,7 @@
 import type { ImageData } from '../models/type/imageDataType';
 import { renderSlide } from '../services/renderSlide';
 import { dragImage } from '../services/dragImage';
+import { addImage, getAllImages } from '../db/store';
 /**
  * Converts an uploaded file to base64, stores it in localStorage, and updates the UI.
  * Re-renders slides, re-initializes drag, and resets the file input.
@@ -12,14 +13,18 @@ export function convertAndStore(
 ) {
   const reader = new FileReader();
 
-  reader.onload = () => {
+  reader.onload = async () => {
     if (typeof reader.result !== 'string') return;
     const base64Path: string = reader.result;
 
-    const allImageData: ImageData[] = JSON.parse(localStorage.getItem('imageData') || '[]');
+    const data: ImageData = {
+      name: file.name,
+      path: base64Path,
+      createdAt: new Date(),
+    };
 
-    allImageData.push({ path: base64Path, name: file.name });
-    localStorage.setItem('imageData', JSON.stringify(allImageData));
+    addImage(data);
+
     renderSlide(imageElement); // refresh UI
     dragImage(); // initilize drag & drop on New Image also
 

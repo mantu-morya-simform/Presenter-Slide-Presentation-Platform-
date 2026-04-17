@@ -1,4 +1,5 @@
 export interface ImageData {
-  path: string;
   name: string;
+  path: string;
+  createdAt: Date;
 }
