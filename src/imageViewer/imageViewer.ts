@@ -28,7 +28,8 @@ export function showImage(index:number){
 
 //fn to get previous image on clicking the left button
 export function prevImage(){
-    isDragable(false);
+    isDragable(false);    
+    if(imageIndex.startIndex<=0) return;
     imageIndex.startIndex--;
     showImage(imageIndex.startIndex);
     updateButton(imageIndex.startIndex);
@@ -36,6 +37,7 @@ export function prevImage(){
 //fn to get previous image on clicking the right button
 export function nextImage(){
     isDragable(false);
+    if(imageIndex.startIndex>getImages().length-2) return;
     imageIndex.startIndex++;
     showImage(imageIndex.startIndex);
     updateButton(imageIndex.startIndex);

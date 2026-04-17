@@ -1,4 +1,4 @@
-import { imageEl,leftClick,rightClick } from "./imageViewer/slide-ui";
+import { endPresentationButtonElement, imageEl,leftClick,rightClick } from "./imageViewer/slide-ui";
 import { showImage,nextImage,prevImage } from "./imageViewer/imageViewer";
 
 import { imageSaveButton, imageInput, imageElement } from './Dom/dom';
@@ -7,8 +7,8 @@ import { renderSlide } from './services/renderSlide';
 import { dragImage } from './services/dragImage';
 import { deleteSelected } from './services/deleteSelected';
 import { isDragable } from "./utills/dragabbleState";
-import { startPresentation } from "./services/startPresentation";
-
+import { endPresentation, startPresentation } from "./imageViewer/startPresentation";
+import { startPresentationButtonElement } from "./imageViewer/slide-ui";
 
 //works for run time image add too
 imageEl?.addEventListener('click',(e:Event)=>{
@@ -31,6 +31,16 @@ if(leftClick){
 rightClick?.addEventListener('click',nextImage);
 leftClick?.addEventListener('click',prevImage);
 
+document.addEventListener('keydown',(e)=>{
+  console.log(e.key);
+  if(e.key==='ArrowLeft'){
+    prevImage();
+  }
+  if(e.key==='ArrowRight'){
+    nextImage();
+  }
+})
+
 /* Init */
 saveImage(imageSaveButton, imageInput, imageElement);
 
@@ -45,4 +55,5 @@ dragImage();
 deleteSelected();
 
 /* Start Presentation Feature */
-startPresentation();
+startPresentationButtonElement?.addEventListener('click',startPresentation)
+endPresentationButtonElement?.addEventListener('click',endPresentation)

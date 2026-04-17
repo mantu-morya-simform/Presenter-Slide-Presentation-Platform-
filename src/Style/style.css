@@ -125,7 +125,7 @@ body {
   padding: var(--space-5);
 }
 
-.start-presentation-btn {
+.start-presentation-btn,.end-presentation-btn {
   padding: var(--space-3) var(--space-5);
   border: none;
   border-radius: var(--radius-sm);
@@ -134,6 +134,9 @@ body {
   font-size: var(--text-sm);
   font-weight: var(--font-semi-bold);
   color: var(--gray-800);
+}
+.d-none{
+  display: none;
 }
 
 .start-presentation-btn:hover {
