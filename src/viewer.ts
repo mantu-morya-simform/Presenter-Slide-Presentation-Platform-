@@ -1,3 +1,5 @@
+import { postMessageType } from './constants/constantsType';
+
 const channel = new BroadcastChannel('preview_sync');
 
 const img = document.querySelector<HTMLImageElement>('.presentation-img');
@@ -15,7 +17,7 @@ const img = document.querySelector<HTMLImageElement>('.presentation-img');
  * the presentation viewer.
  */
 channel.onmessage = (event) => {
-  if (event.data?.type === 'UPDATE_IMAGE' && img) {
+  if (event.data?.type === postMessageType && img) {
     img.src = event.data.image;
   }
 };

@@ -1,3 +1,6 @@
+import type { ImageData } from '../models/type/imageDataType';
+import { postMessageType } from '../constants/constantsType';
+
 const channel = new BroadcastChannel('preview_sync');
 
 /**
@@ -5,13 +8,13 @@ const channel = new BroadcastChannel('preview_sync');
  * Fetches image from localStorage and sends it via BroadcastChannel.
  */
 export function selectImage(index: number) {
-  const allImageData = JSON.parse(localStorage.getItem('imageData') || '[]');
+  const allImageData: ImageData[] = JSON.parse(localStorage.getItem('imageData') || '[]');
   const image = allImageData[index];
 
   if (!image) return;
 
   channel.postMessage({
-    type: 'UPDATE_IMAGE',
+    type: postMessageType,
     image: image.path,
   });
 }

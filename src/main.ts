@@ -17,7 +17,7 @@ imageEl?.addEventListener('click', (e: Event) => {
     if (!imageEl) return;
     const images: NodeListOf<HTMLImageElement> = imageEl?.querySelectorAll('img');
     const index = Array.from(images).indexOf(target);
-    selectImage(Number(index));
+    selectImage(index);
     showImage(index);
   }
 });
