@@ -1,6 +1,10 @@
 import { swapImages } from '../utills/swapImages';
 import { gameState } from '../models/appState';
 
+/**
+ * Enables drag-and-drop swapping for images.
+ * Tracks selected and target elements, then swaps them if dragging is allowed.
+ */
 export function dragImage() {
   let selectedElement: HTMLImageElement | null = null;
   let targetElement: HTMLImageElement | null = null;

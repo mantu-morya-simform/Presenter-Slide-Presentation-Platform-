@@ -5,10 +5,8 @@ import { startPresentationButtonElement } from '../Dom/dom';
  * Attaches click event only if the button element exists.
  */
 
-export function startPresentation(){
+export function startPresentation() {
   startPresentationButtonElement?.addEventListener('click', () => {
     window.open('/viewer.html', '_blank');
   });
 }
-
- 

@@ -1,6 +1,10 @@
 import type { ImageData } from '../models/type/imageDataType';
 import { renderSlide } from '../services/renderSlide';
 import { dragImage } from '../services/dragImage';
+/**
+ * Converts an uploaded file to base64, stores it in localStorage, and updates the UI.
+ * Re-renders slides, re-initializes drag, and resets the file input.
+ */
 export function convertAndStore(
   file: File,
   imageElement: HTMLElement | null,
