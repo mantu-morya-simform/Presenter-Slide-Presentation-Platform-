@@ -8,4 +8,6 @@ const draggableImages = document.querySelectorAll<HTMLImageElement>('.img');
 
 const deleteSelectedFileElement = document.querySelector<HTMLElement>('.select-file-remove');
 
-export { imageSaveButton, imageInput, imageElement, draggableImages, deleteSelectedFileElement };
+const startPresentationButtonElement =document.querySelector<HTMLButtonElement>('.start-presentation-btn');
+
+export { imageSaveButton, imageInput, imageElement, draggableImages, deleteSelectedFileElement,startPresentationButtonElement };

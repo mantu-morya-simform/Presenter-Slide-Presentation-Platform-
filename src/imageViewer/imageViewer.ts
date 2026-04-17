@@ -4,9 +4,8 @@ import { createImage } from "../utills/createImage";
 import { isDragable } from "../utills/dragabbleState";
 
 //fn to fetch the image from sidebar
-function getImages():NodeListOf<HTMLImageElement>{
-    if(!imageEl) throw new Error("imageEl not found");
-    return imageEl.querySelectorAll('img');
+export function getImages(){
+    return imageEl ? Array.from(imageEl.querySelectorAll('img')) : [];
 }
 
 //fn to update the button state
@@ -20,7 +19,7 @@ function updateButton(index:number){
 //fn to create image and render
 export function showImage(index:number){
     const images=getImages();
-    if(!imageStore) throw new Error("imageStore not found");
+    if(!imageStore) return;
     imageStore.innerHTML='';
     imageStore.appendChild(createImage(images[index].src, images[index].alt));
     imageIndex.startIndex=index;
