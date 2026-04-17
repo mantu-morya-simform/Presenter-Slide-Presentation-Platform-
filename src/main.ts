@@ -10,29 +10,31 @@ import { isDragable } from "./utills/dragabbleState";
 import { endPresentation, startPresentation } from "./imageViewer/startPresentation";
 import { startPresentationButtonElement } from "./imageViewer/slide-ui";
 
+import { selectImage } from './utills/selectImage';
+
 //works for run time image add too
-imageEl?.addEventListener('click',(e:Event)=>{
-  const target=e.target;
-  if(target instanceof HTMLImageElement){
+imageEl?.addEventListener('click', (e: Event) => {
+  const target = e.target;
+  if (target instanceof HTMLImageElement) {
     isDragable(false);
-    if(!imageEl)return;
-    const images:NodeListOf<HTMLImageElement>=imageEl?.querySelectorAll('img');
-    const index=Array.from(images).indexOf(target);    
+    if (!imageEl) return;
+    const images: NodeListOf<HTMLImageElement> = imageEl?.querySelectorAll('img');
+    const index = Array.from(images).indexOf(target);
+    selectImage(index);
     showImage(index);
   }
-})
+});
 
 //initial state
-if(leftClick){
+if (leftClick) {
   leftClick.disabled = true;
 }
 
 //button click image chang
-rightClick?.addEventListener('click',nextImage);
-leftClick?.addEventListener('click',prevImage);
+rightClick?.addEventListener('click', nextImage);
+leftClick?.addEventListener('click', prevImage);
 
 document.addEventListener('keydown',(e)=>{
-  console.log(e.key);
   if(e.key==='ArrowLeft'){
     prevImage();
   }
@@ -44,7 +46,7 @@ document.addEventListener('keydown',(e)=>{
 /* Init */
 saveImage(imageSaveButton, imageInput, imageElement);
 
-if(imageElement){
+if (imageElement) {
   renderSlide(imageElement);
 }
 

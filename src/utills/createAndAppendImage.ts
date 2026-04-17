@@ -1,6 +1,9 @@
 import type { ImageData } from '../models/type/imageDataType';
 
-/* it is use to create and append element to imageElemet that is parent(hold all the images) */
+/**
+ * Renders all images in the container based on provided data.
+ * Clears existing content and appends new <img> elements with index tracking.
+ */
 export function createAndAppendImage(imageElement: HTMLElement | null, allImageData: ImageData[]) {
   if (!imageElement) return;
   imageElement.innerHTML = '';
