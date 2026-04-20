@@ -8,7 +8,7 @@ export function getImages() {
 }
 
 //fn to update the button state
-export function updateButton(index: number){
+export function updateButton(index: number) {
   if (!leftClick || !rightClick) return;
   const img = getImages();
   leftClick.disabled = index === 0;
@@ -16,7 +16,7 @@ export function updateButton(index: number){
 }
 
 //fn to create image and render
-export function showImage(index: number){
+export function showImage(index: number) {
   const images = getImages();
   if (!imageStore) return;
   imageStore.innerHTML = '';
@@ -26,13 +26,12 @@ export function showImage(index: number){
 }
 
 //enable fullscreen mode and exit fullscreen mode
-export function toggleFullscreen(button:HTMLButtonElement){
-  if(!document.fullscreenElement){
+export function toggleFullscreen(button: HTMLButtonElement) {
+  if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
-    button.textContent='Exit fullscreen';
-  } 
-  else{
+    button.textContent = 'Exit fullscreen';
+  } else {
     document.exitFullscreen();
-    button.textContent='Go fullscreen';
+    button.textContent = 'Go fullscreen';
   }
 }
