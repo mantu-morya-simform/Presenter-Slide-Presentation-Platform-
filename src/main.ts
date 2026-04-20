@@ -1,13 +1,18 @@
-import { imageEl, leftClick, rightClick } from './imageViewer/slide-ui';
-import { showImage, nextImage, prevImage } from './imageViewer/imageViewer';
+import { imageEl,leftClick,rightClick } from "./imageViewer/slide-ui";
+import { showImage} from "./imageViewer/imageViewer";
+
 import { imageSaveButton, imageInput, imageElement } from './Dom/dom';
 import { saveImage } from './services/saveImage';
 import { renderSlide } from './services/renderSlide';
 import { dragImage } from './services/dragImage';
 import { deleteSelected } from './services/deleteSelected';
-import { isDragable } from './utills/dragabbleState';
-import { startPresentation } from './services/startPresentation';
+import { isDragable } from "./utills/dragabbleState";
+import { startPresentationButtonElement } from "./imageViewer/slide-ui";
+
 import { selectImage } from './utills/selectImage';
+import { handlePresentation } from "./imageViewer/startPresentation";
+import { keyboardNavigation } from "./imageViewer/keyboardNavigation";
+import { nextImage, prevImage } from "./utills/changeImage";
 
 //works for run time image add too
 imageEl?.addEventListener('click', (e: Event) => {
@@ -31,6 +36,9 @@ if (leftClick) {
 rightClick?.addEventListener('click', nextImage);
 leftClick?.addEventListener('click', prevImage);
 
+//this fn used to handle keyboard click image change functionality
+keyboardNavigation();
+
 /* Init */
 saveImage(imageSaveButton, imageInput, imageElement);
 
@@ -45,4 +53,5 @@ dragImage();
 deleteSelected();
 
 /* Start Presentation Feature */
-startPresentation();
+startPresentationButtonElement?.addEventListener('click',handlePresentation)
+

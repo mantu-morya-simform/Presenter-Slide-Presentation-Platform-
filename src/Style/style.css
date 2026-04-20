@@ -125,7 +125,7 @@ body {
   padding: var(--space-5);
 }
 
-.start-presentation-btn {
+.start-presentation-btn,.end-presentation-btn {
   padding: var(--space-3) var(--space-5);
   border: none;
   border-radius: var(--radius-sm);
