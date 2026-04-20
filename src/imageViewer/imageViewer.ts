@@ -1,8 +1,7 @@
 import { imageEl, imageStore, leftClick, rightClick } from './slide-ui';
 import { imageIndex } from './slide-data';
 import { createImage } from '../utills/createImage';
-import { isDragable } from '../utills/dragabbleState';
-import { selectImage } from '../utills/selectImage';
+import { changeImage } from '../utills/changeImage';
 
 //fn to fetch the image from sidebar
 export function getImages() {
@@ -10,7 +9,7 @@ export function getImages() {
 }
 
 //fn to update the button state
-export function updateButton(index: number) {
+export function updateButton(index: number){
   if (!leftClick || !rightClick) return;
   const img = getImages();
   leftClick.disabled = index === 0;
@@ -18,7 +17,7 @@ export function updateButton(index: number) {
 }
 
 //fn to create image and render
-export function showImage(index: number) {
+export function showImage(index: number){
   const images = getImages();
   if (!imageStore) return;
   imageStore.innerHTML = '';
@@ -27,23 +26,13 @@ export function showImage(index: number) {
   updateButton(index);
 }
 
-//change image by step we provide
-export function changeImage(step: number){
-    isDragable(false);
-    const newIndex = imageIndex.startIndex + step;
-    if(newIndex<0 || newIndex>=getImages().length) return;
-    imageIndex.startIndex=newIndex;
-    selectImage(newIndex);
-    showImage(newIndex);
-    updateButton(newIndex);
-}
 //fn to get previous image on clicking the left button
-export function prevImage() {
+export function prevImage(){
     changeImage(-1);
 }
 
 //fn to get previous image on clicking the right button
-export function nextImage() {
+export function nextImage(){
     changeImage(1);
 }
 
