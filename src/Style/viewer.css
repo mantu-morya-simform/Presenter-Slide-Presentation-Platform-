@@ -55,3 +55,14 @@ body {
   width: 100%;
   border: var(--border-5) solid var(--blue-600);
 }
+
+.fullscreen{
+  height: 50px;
+  width: 150px;
+  margin-left: auto;
+  font-size: var(--text-md);
+  color: var(--gray-100);
+  border: 1px solid var(--blue-600);
+  border-radius: var(--radius-sm);
+  background-color: var(--red-500);
+}
