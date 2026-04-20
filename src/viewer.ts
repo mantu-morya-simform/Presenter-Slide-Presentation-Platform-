@@ -26,6 +26,7 @@ if (channel)
     }
   };
 
+//listen on fullScreenBtn click
 fullScreenBtn?.addEventListener('click',()=>{
   if(fullScreenBtn){
     toggleFullscreen(fullScreenBtn);

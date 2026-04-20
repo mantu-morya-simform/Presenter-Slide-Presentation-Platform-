@@ -25,6 +25,7 @@ export function showImage(index: number){
   updateButton(index);
 }
 
+//enable fullscreen mode and exit fullscreen mode
 export function toggleFullscreen(button:HTMLButtonElement){
   if(!document.fullscreenElement){
     document.documentElement.requestFullscreen();
