@@ -10,7 +10,7 @@ export function getImages() {
 }
 
 //fn to update the button state
-function updateButton(index: number) {
+export function updateButton(index: number) {
   if (!leftClick || !rightClick) return;
   const img = getImages();
   leftClick.disabled = index === 0;
@@ -27,21 +27,27 @@ export function showImage(index: number) {
   updateButton(index);
 }
 
-//fn to get previous image on clicking the left button
-export function prevImage(){
-    isDragable(false);    
-    if(imageIndex.startIndex<=0) return;
-    imageIndex.startIndex--;
-    selectImage((imageIndex.startIndex));
-    showImage(imageIndex.startIndex);
-    updateButton(imageIndex.startIndex);
-}
-//fn to get previous image on clicking the right button
-export function nextImage(){
+//change image by step we provide
+export function changeImage(step: number){
     isDragable(false);
-    if(imageIndex.startIndex>getImages().length-2) return;
-    imageIndex.startIndex++;
-    selectImage((imageIndex.startIndex));
-    showImage(imageIndex.startIndex);
-    updateButton(imageIndex.startIndex);
+    const newIndex = imageIndex.startIndex + step;
+    if(newIndex<0 || newIndex>=getImages().length) return;
+    imageIndex.startIndex=newIndex;
+    selectImage(newIndex);
+    showImage(newIndex);
+    updateButton(newIndex);
+}
+//fn to get previous image on clicking the left button
+export function prevImage() {
+    changeImage(-1);
+}
+
+//fn to get previous image on clicking the right button
+export function nextImage() {
+    changeImage(1);
+}
+
+//fullscreen functionality
+export function screenMode(){
+    document.documentElement.requestFullscreen();
 }

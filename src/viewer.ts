@@ -1,5 +1,7 @@
 import { postMessageType } from './constants/constantsType';
 import { viewerimgElement } from './Dom/dom';
+import { screenMode } from './imageViewer/imageViewer';
+import { fullScreen } from './imageViewer/slide-ui';
 import { createChannel } from './utills/createChannel';
 
 /**
@@ -23,3 +25,6 @@ if (channel)
       viewerimgElement.src = event.data.image;
     }
   };
+
+//enable full screen mode 
+fullScreen?.addEventListener('click', screenMode);

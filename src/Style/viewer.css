@@ -55,3 +55,13 @@ body {
   width: 100%;
   border: var(--border-5) solid var(--blue-600);
 }
+
+.fullscreen{
+  height: 50px;
+  width: 150px;
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: salmon;
+  border: 1px solid salmon;
+  border-radius: 3px;
+}
