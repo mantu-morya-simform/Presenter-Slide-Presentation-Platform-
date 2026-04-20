@@ -1,4 +1,4 @@
-import { prevImage, nextImage } from "./imageViewer";
+import { nextImage, prevImage } from "../utills/changeImage";
 import { ArrowKey } from "./slide-data";
 
 export function keyboardNavigation(){

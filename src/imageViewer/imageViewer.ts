@@ -1,7 +1,6 @@
 import { imageEl, imageStore, leftClick, rightClick } from './slide-ui';
 import { imageIndex } from './slide-data';
 import { createImage } from '../utills/createImage';
-import { changeImage } from '../utills/changeImage';
 
 //fn to fetch the image from sidebar
 export function getImages() {
@@ -26,17 +25,13 @@ export function showImage(index: number){
   updateButton(index);
 }
 
-//fn to get previous image on clicking the left button
-export function prevImage(){
-    changeImage(-1);
-}
-
-//fn to get previous image on clicking the right button
-export function nextImage(){
-    changeImage(1);
-}
-
-//fullscreen functionality
-export function screenMode(){
+export function toggleFullscreen(button:HTMLButtonElement){
+  if(!document.fullscreenElement){
     document.documentElement.requestFullscreen();
+    button.textContent='Exit fullscreen';
+  } 
+  else{
+    document.exitFullscreen();
+    button.textContent='Go fullscreen';
+  }
 }

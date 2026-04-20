@@ -135,9 +135,6 @@ body {
   font-weight: var(--font-semi-bold);
   color: var(--gray-800);
 }
-.d-none{
-  display: none;
-}
 
 .start-presentation-btn:hover {
   background: var(--blue-600);

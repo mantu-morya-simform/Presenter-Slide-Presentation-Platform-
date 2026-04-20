@@ -1,5 +1,5 @@
 import { imageEl,leftClick,rightClick } from "./imageViewer/slide-ui";
-import { showImage,nextImage,prevImage } from "./imageViewer/imageViewer";
+import { showImage} from "./imageViewer/imageViewer";
 
 import { imageSaveButton, imageInput, imageElement } from './Dom/dom';
 import { saveImage } from './services/saveImage';
@@ -12,6 +12,7 @@ import { startPresentationButtonElement } from "./imageViewer/slide-ui";
 import { selectImage } from './utills/selectImage';
 import { handlePresentation } from "./imageViewer/startPresentation";
 import { keyboardNavigation } from "./imageViewer/keyboardNavigation";
+import { nextImage, prevImage } from "./utills/changeImage";
 
 //works for run time image add too
 imageEl?.addEventListener('click', (e: Event) => {

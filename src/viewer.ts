@@ -1,7 +1,7 @@
 import { postMessageType } from './constants/constantsType';
 import { viewerimgElement } from './Dom/dom';
-import { screenMode } from './imageViewer/imageViewer';
-import { fullScreen } from './imageViewer/slide-ui';
+import { toggleFullscreen } from './imageViewer/imageViewer';
+import { fullScreenBtn } from './imageViewer/slide-ui';
 import { createChannel } from './utills/createChannel';
 
 /**
@@ -26,5 +26,8 @@ if (channel)
     }
   };
 
-//enable full screen mode 
-fullScreen?.addEventListener('click', screenMode);
+fullScreenBtn?.addEventListener('click',()=>{
+  if(fullScreenBtn){
+    toggleFullscreen(fullScreenBtn);
+  }
+});
